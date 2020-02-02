@@ -1,0 +1,9 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    - ansible_role_python_deployment_users_home: /root
+    - ansible_role_python_testing_provider: lxd
+
+  roles:
+    - ansible_role_python

@@ -1,0 +1,3 @@
+---
+# ansible-role-ansible_role_python/vars/main.yml
+python_runtime_version: 3.7

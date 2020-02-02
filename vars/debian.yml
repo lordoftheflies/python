@@ -1,0 +1,5 @@
+---
+# ansible-role-ansible_role_python/vars/debian.yml
+
+# Debian specific vars
+ansible_role_python_package_extension: 'deb'

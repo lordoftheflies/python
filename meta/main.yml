@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  role_name: 'ansible_role_python'
+  version: '0.0.1'
+  author: 'László Hegedűs'
+  description: 'Ansible Galaxy role for Python Runtime.'
+  company: 'Cherubits'
+  license: Apache-2.0
+  min_ansible_version: '2.9'
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - cherubits
+    - python
+    - runtime
+dependencies: []

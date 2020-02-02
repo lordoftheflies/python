@@ -1,0 +1,4 @@
+---
+# ansible-role-ansible_role_python/vars/debian.yml
+
+ansible_role_python_package_extension: 'rpm'
