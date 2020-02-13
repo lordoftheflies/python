@@ -95,7 +95,35 @@
     name: "{{ necessary_package }}"
     state: present
   with_items:
-      - python-pip
+      - python3-pip
       - libssl-dev
   loop_control:
     loop_var: necessary_package
+
+- name: "Install runtime packages"
+  become: yes
+  package:
+    name: "python{{python_runtime_version}}"
+    state: present
+
+- name: "Link python to Python {{ python_runtime_version }}"
+  become: yes
+  file:
+    src: "/usr/bin/python{{ python_runtime_version }}"
+    dest: /usr/bin/python
+    state: link
+
+- name: "Link python3 to Python {{ python_runtime_version }}"
+  become: yes
+  file:
+    src: "/usr/bin/python{{ python_runtime_version }}"
+    dest: /usr/bin/python3
+    state: link
+
+
+- name: "Link python to Python {{ python_runtime_version }}"
+  become: yes
+  file:
+    src: /usr/bin/pip3
+    dest: /usr/bin/pip
+    state: link
