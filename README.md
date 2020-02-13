@@ -2,13 +2,16 @@
 
 ## Status
 
-[![Build Status](https://travis-ci.org/lordoftheflies/ansible-role-python.svg?branch=master)](https://travis-ci.org/lordoftheflies/ansible-role-python)
-[![Travis CI](http://img.shields.io/travis/lordoftheflies/ansible-role-python/default.svg?style=flat)](http://travis-ci.org/lordoftheflies/ansible-role-python/default)
-[![Platforms](http://img.shields.io/badge/platforms-debian%20/%20ubuntu-lightgrey.svg?style=flat)](#)
+[![Travis CI](https://travis-ci.org/lordoftheflies/ansible-role-python.svg?branch=master)](https://travis-ci.org/lordoftheflies/ansible-role-python)
+
+### Supported platforms
+
+[![Platform](http://img.shields.io/badge/platform-Ubuntu_19.10-purple.svg?style=flat)](#)
+[![Platform](http://img.shields.io/badge/platform-Ubuntu_19.04-purple.svg?style=flat)](#)
 
 ## Description
 
-ansible-role-python is an Ansible role used to...
+Role for setup Python runtime environment.
 
 ## Roadmap
 

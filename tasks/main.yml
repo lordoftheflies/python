@@ -97,6 +97,7 @@
   with_items:
       - python3-pip
       - libssl-dev
+      - virtualenv
   loop_control:
     loop_var: necessary_package
 
