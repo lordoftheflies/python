@@ -122,9 +122,10 @@
     state: link
 
 
-- name: "Link python to Python {{ python_runtime_version }}"
+- name: "Link pip to Pip 3 {{ python_runtime_version }}"
   become: yes
   file:
     src: /usr/bin/pip3
     dest: /usr/bin/pip
     state: link
+  ignore_errors: yes
