@@ -91,7 +91,10 @@
 
 - name: "Install necessary packages"
   package:
-    - name: python-pip
+    - name: "{{ necessary_package }}"
       state: present
-    - name: libssl-dev
-      state: present
+  with_items:
+      - python-pip
+      - libssl-dev
+  loop_control:
+    loop_var: necessary_package
