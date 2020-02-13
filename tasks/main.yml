@@ -54,7 +54,7 @@
 ## CentOS
 
 - name: "Run CentOS  specific tasks"
-  include_tasks: "centos_{{distribution}}.yml"
+  include_tasks: "centos_{{ distribution }}.yml"
   when: ansible_distribution == 'CentOS' and ansible_distribution_major_version| int == ""
   with_items:
     - 7
@@ -66,25 +66,28 @@
 ## Debian
 
 - name: "Run Debian  (Stretch) specific tasks"
-  include_tasks: "debian_.yml"
+  include_tasks: "debian_{{ distribution }}.yml"
   when: ansible_distribution == 'Debian' and ansible_distribution_major_version| int == ""
-  with_distributions:
+  with_items:
     - 7
     - 8
     - 9
-
+  loop_control:
+    loop_var: distribution
 ## Ubuntu
 
 - name: "Run Ubuntu  specific tasks"
-  include_tasks: "ubuntu_.yml"
+  include_tasks: "ubuntu_{{ distribution }}.yml"
   when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == ""
-  with_distributions:
+  with_items:
       - 12.04
       - 14.04
       - 16.04
       - 17.04
       - 18.04
       - 19.04
+  loop_control:
+    loop_var: distribution
 
 - name: "Install necessary packages"
   package:
