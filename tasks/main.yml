@@ -90,9 +90,10 @@
     loop_var: distribution
 
 - name: "Install necessary packages"
+  become: yes
   package:
-    - name: "{{ necessary_package }}"
-      state: present
+    name: "{{ necessary_package }}"
+    state: present
   with_items:
       - python-pip
       - libssl-dev
