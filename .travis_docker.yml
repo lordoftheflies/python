@@ -22,7 +22,7 @@ install:
   - sudo apt-add-repository -y ppa:ansible/ansible
   - sudo apt-get update -qq
   - sudo apt-get install -y ansible
-  - sudo rm /usr/bin/python && sudo ln -s /usr/bin/python2.7 /usr/bin/python
+  - sudo rm /usr/bin/python && sudo ln -s /usr/bin/python3.6 /usr/bin/python
   # install
   - ansible-galaxy install -r tests/requirements.yml -p tests/roles/
 script:
@@ -30,14 +30,14 @@ script:
     sudo ansible all -i "127.0.0.1," -m
     lineinfile -a "regexp=^#host_key_checking dest=/etc/ansible/ansible.cfg line='host_key_checking = False'" -c local
   # Check the role/playbook's syntax.
-  - ansible-playbook -i tests/inventory tests/travis/travis.yml --syntax-check
+  - ansible-playbook -i tests/inventory tests/travis/playbook.yml --syntax-check
   # Run the role/playbook with ansible-playbook.
   - >
-    ansible-playbook -i tests/inventory tests/travis.yml
+    ansible-playbook -i tests/travis/inventory.ini tests/travis/playbook.yml
     --connection=local --become
   # Run the role/playbook again, checking to make sure it's idempotent.
   - >
-    ansible-playbook -i tests/inventory tests/travis.yml --connection=local --become
+    ansible-playbook -i tests/travis/inventory.ini tests/travis/playbook.yml --connection=local --become
     | grep -q 'changed=8.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
