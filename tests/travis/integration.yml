@@ -4,4 +4,4 @@
 - hosts: localhost
   become: true
   roles:
-    - lordoftheflies.ansible_role_python
+    - ansible-role-python
